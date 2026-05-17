@@ -1,0 +1,17 @@
+C:\Users\panov_55yspok\source\repos\Test noch ein\bin\Debug\net10.0-windows\Test noch ein.exe
+C:\Users\panov_55yspok\source\repos\Test noch ein\bin\Debug\net10.0-windows\Test noch ein.deps.json
+C:\Users\panov_55yspok\source\repos\Test noch ein\bin\Debug\net10.0-windows\Test noch ein.runtimeconfig.json
+C:\Users\panov_55yspok\source\repos\Test noch ein\bin\Debug\net10.0-windows\Test noch ein.dll
+C:\Users\panov_55yspok\source\repos\Test noch ein\bin\Debug\net10.0-windows\Test noch ein.pdb
+C:\Users\panov_55yspok\source\repos\Test noch ein\obj\Debug\net10.0-windows\Test_noch_ein.Form1.resources
+C:\Users\panov_55yspok\source\repos\Test noch ein\obj\Debug\net10.0-windows\Test noch ein.csproj.GenerateResource.cache
+C:\Users\panov_55yspok\source\repos\Test noch ein\obj\Debug\net10.0-windows\Test noch ein.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\panov_55yspok\source\repos\Test noch ein\obj\Debug\net10.0-windows\Test noch ein.AssemblyInfoInputs.cache
+C:\Users\panov_55yspok\source\repos\Test noch ein\obj\Debug\net10.0-windows\Test noch ein.AssemblyInfo.cs
+C:\Users\panov_55yspok\source\repos\Test noch ein\obj\Debug\net10.0-windows\Test noch ein.csproj.CoreCompileInputs.cache
+C:\Users\panov_55yspok\source\repos\Test noch ein\obj\Debug\net10.0-windows\Test noch ein.dll
+C:\Users\panov_55yspok\source\repos\Test noch ein\obj\Debug\net10.0-windows\refint\Test noch ein.dll
+C:\Users\panov_55yspok\source\repos\Test noch ein\obj\Debug\net10.0-windows\Test noch ein.pdb
+C:\Users\panov_55yspok\source\repos\Test noch ein\obj\Debug\net10.0-windows\Test noch ein.genruntimeconfig.cache
+C:\Users\panov_55yspok\source\repos\Test noch ein\obj\Debug\net10.0-windows\ref\Test noch ein.dll
+C:\Users\panov_55yspok\source\repos\Test noch ein\obj\Debug\net10.0-windows\Test_noch_ein.Properties.Resources.resources
