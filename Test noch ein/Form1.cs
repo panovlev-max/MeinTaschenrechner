@@ -161,15 +161,15 @@ namespace Test_noch_ein
         {
             User CurrentUser = new User();
 
-            CurrentUser.Names = txtName.Text;
-            CurrentUser.Location = txtOrt.Text;
+            CurrentUser.name = txtName.Text;
+            CurrentUser.location = txtOrt.Text;
 
             string Error = CurrentUser.GetValidationError();
 
             if (Error == "")
             {
                 register = true;
-                MessageBox.Show("du heist " + CurrentUser.Names + "du lebst in" + CurrentUser.Location);
+                MessageBox.Show("du heist " + CurrentUser.name + "du lebst in" + CurrentUser.location);
                 txtZahl1.Focus();
             }
             else
@@ -197,7 +197,7 @@ namespace Test_noch_ein
         public void KeineSimwohle_TextChange(object sender, EventArgs e)
         {
             Regex regex = new Regex(@"^[0-9 ,]+$");
-            Regex Symbole = new Regex(@"^[*/+-]$");
+            Regex Symbole = new Regex(@"^[* / + -]$");
 
 
 
@@ -231,14 +231,13 @@ namespace Test_noch_ein
             {
                 if (!register) MessageBox.Show("Erst registrieren!");
                 else if (!nurzahlen) MessageBox.Show("Nur Zahlen erlaubt!");
-                else if (!nurSymbole) MessageBox.Show("da sprogram fersteht nur /*-+");
+                else if (!nurSymbole) MessageBox.Show("das program fersteht nur /*-+");
                 return;
             }
-
+            string op = txtOperator.Text;
             if (!double.TryParse(txtZahl1.Text, out double a)) return;
             if (!double.TryParse(txtZahl2.Text, out double b)) return;
-            string op = txtOperator.Text;
-
+            
 
             var Rechnungsferktoren = new[] { txtZahl1, txtZahl2 };
 
@@ -261,8 +260,8 @@ namespace Test_noch_ein
 
             txtZahl1.Focus();
         }
-
-        private async void txtResult_TextChanged(object sender, EventArgs e)
+        
+      /*  private async void txtResult_TextChanged(object sender, EventArgs e)
 
         {
 
@@ -270,13 +269,13 @@ namespace Test_noch_ein
             for (int y = 434; y >= 341; y--)
             {
 
-                txtResult.Location = new Point(310, y);
+                txtResult.Location = new Point(txtResult.Left,txtResult.Height + 15);
 
                 await Task.Delay(1);
-
+      //wegen fergroßerung des bild schirmes funkzionirt es nciht (rein matimatisch konten wir du der Y alse z.b15prozent einfugen)
             }
         }
-
+        */
         private void btnListClear_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -284,93 +283,49 @@ namespace Test_noch_ein
 
         private void speichernButten_Click(object sender, EventArgs e)
         {
-            if (listBox1.Items.Count > 0)
+          try
             {
-
-                try
-                {
-
-                    var aktuelleEintraeg = listBox1.Items.Cast<string>();
-
-
-                    File.AppendAllLines("hystory.txt", aktuelleEintraeg);
-
-
-
-                    MessageBox.Show("wurde geschpeichert");
-
-                }
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Fehler" + ex.Message);
-                }
-
+                Die_History_Logik history = new Die_History_Logik();
+                history.Speichern(listBox1.Items);
+                MessageBox.Show("wurde geschpeichert");
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("zuerst rechnen");
+                MessageBox.Show(ex.Message);
             }
-
         }
-
         private void seveverwendenButon_Click(object sender, EventArgs e)
         {
             try
             {
-                if (File.Exists("hystory.txt"))
-                {
+                Die_History_Logik history = new Die_History_Logik();
 
-                    geladeneDaten = File.ReadAllLines("hystory.txt");
+                geladeneDaten = history.Laden();
 
-                    listBox1.Items.Clear();
-                    listBox1.Items.AddRange(geladeneDaten);
-                    MessageBox.Show("wurde die hystory ist geladen ");
-                }
-
-                else
-                {
-                    MessageBox.Show("Es gibt noch keine Speicherdatei");
-                }
+                listBox1.Items.Clear();
+                listBox1.Items.AddRange(geladeneDaten);
+                MessageBox.Show("wurde die hystory ist geladen");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Fehler beim Laden" + ex.Message);
+                MessageBox.Show( ex.Message);
             }
         }
-
         private void hystorydelit_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Möchtest du die gesamte Historie wirklich löschen?", "Löschen bestätigen", MessageBoxButtons.YesNo);
-
-
-            if (result == DialogResult.Yes)
+           
+            try
             {
-                try
-                {
-                    listBox1.Items.Clear();
+                Die_History_Logik history = new Die_History_Logik();
 
-                    if (File.Exists("hystory.txt"))
-                    {
-                        File.Delete("hystory.txt");
+                history.Löeschen();
+                listBox1.Items.Clear();
+             }
+            catch (Exception ex)
+            {
+                    MessageBox.Show(ex.Message);
 
-                        MessageBox.Show("Die Geschichte wurde erfolgreich gelöscht");
-                    }
-
-                    else
-                    {
-                        MessageBox.Show("Es gab keine Datei (hystory.txt),um sie zu löschen");
-
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Fehler gibt es " + ex.Message);
-
-                }
             }
-
         }
     }
 }

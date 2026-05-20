@@ -11,11 +11,23 @@ namespace Test_noch_ein
 
             switch (op)
             {
-                case "*": return n1 * n2;
-                case "/": return n2 != 0 ? n1 / n2 : 0;
-                case "+": return n1 + n2;
-                case "-": return n1 - n2;
-                default: return 0;
+                case "*": 
+                    return n1 * n2;
+
+                case "/":
+                    if (n2 == 0)
+                    {
+                       throw new DivideByZeroException("Division durch Null ist verboten!");
+                    }
+                   return n1 / n2;
+
+                case "+":
+                    return n1 + n2;
+
+                case "-": 
+                    return n1 - n2;
+                default:
+                    throw new DivideByZeroException("Unbekannter Operator!");
             }
         }
 

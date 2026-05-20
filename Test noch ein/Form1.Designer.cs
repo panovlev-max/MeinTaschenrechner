@@ -166,9 +166,9 @@
             // txtResult
             // 
             txtResult.AccessibleRole = AccessibleRole.None;
-            txtResult.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtResult.Anchor = AnchorStyles.None;
             txtResult.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            txtResult.Location = new Point(307, 417);
+            txtResult.Location = new Point(307, 341);
             txtResult.Name = "txtResult";
             txtResult.Size = new Size(419, 50);
             txtResult.TabIndex = 11;
